@@ -11,7 +11,8 @@ void Generate(const FunctionCallbackInfo<Value>& args) {
 	char* uuid_string = (char*)(uuid + 16);
     uuid_generate(uuid);
     uuid_unparse(uuid, uuid_string);
-    args.GetReturnValue().Set(String::NewFromUtf8(isolate, uuid_string));
+
+    args.GetReturnValue().Set(String::NewFromUtf8(isolate, uuid_string).ToLocalChecked());
 }
 
 void GenerateTime(const FunctionCallbackInfo<Value>& args) {
@@ -21,7 +22,8 @@ void GenerateTime(const FunctionCallbackInfo<Value>& args) {
 	char* uuid_string = (char*)(uuid + 16);
 	uuid_generate_time(uuid);
 	uuid_unparse(uuid, uuid_string);
-	args.GetReturnValue().Set(String::NewFromUtf8(isolate, uuid_string));
+
+	args.GetReturnValue().Set(String::NewFromUtf8(isolate, uuid_string).ToLocalChecked());
 }
 
 void GenerateRandom(const FunctionCallbackInfo<Value>& args) {
@@ -31,7 +33,8 @@ void GenerateRandom(const FunctionCallbackInfo<Value>& args) {
 	char* uuid_string = (char*)(uuid + 16);
 	uuid_generate_random(uuid);
 	uuid_unparse(uuid, uuid_string);
-	args.GetReturnValue().Set(String::NewFromUtf8(isolate, uuid_string));
+
+	args.GetReturnValue().Set(String::NewFromUtf8(isolate, uuid_string).ToLocalChecked());
 }
 
 void init(Local<Object> exports) {

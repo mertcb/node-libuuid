@@ -11,11 +11,12 @@
   },
   "author": "Samuel Giles",
   "dependencies": {
-    "node-gyp": "^1.0.1"
+    "node-gyp": "^10.0.1",
+    "pluck": "^0.0.4"
   },
   "devDependencies": {
-    "benchmark": "^1.0.0",
-    "node-uuid": "^1.4.1"
+    "benchmark": "^2.1.4",
+    "node-uuid": "^1.4.8"
   },
   "scripts": {
     "install": "node-gyp rebuild",

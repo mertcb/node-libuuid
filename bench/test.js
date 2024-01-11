@@ -1,6 +1,7 @@
 var Benchmark = require('benchmark');
 var libuuid = require('../lib');
 var nodeuuid = require('node-uuid');
+var pluck = require('pluck');
 
 var suitev4 = new Benchmark.Suite;
 
@@ -12,7 +13,7 @@ suitev4.add('node-libuuid#generate_random', function() {
 	  console.log(String(event.target));
 })
 .on('complete', function() {
-	  console.log('Fastest is ' + this.filter('fastest').pluck('name'));
+	  console.log('Fastest is ' + pluck('fastest.name'));
 }).run();
 
 var suitev1 = new Benchmark.Suite;
@@ -25,5 +26,5 @@ suitev1.add('node-libuuid#v1', function() {
 	  console.log(String(event.target));
 })
 .on('complete', function() {
-	  console.log('Fastest is ' + this.filter('fastest').pluck('name'));
+	  console.log('Fastest is ' + pluck('fastest.name'));
 }).run();
